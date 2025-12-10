@@ -1,0 +1,484 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - img
+    - navigation [ref=e12]:
+      - link "Dashboard NEW" [ref=e14] [cursor=pointer]:
+        - /url: "#/dashboard"
+        - img
+        - generic [ref=e15]: Dashboard
+        - generic [ref=e16]: NEW
+      - generic [ref=e17]: Theme
+      - link "Colors" [ref=e19] [cursor=pointer]:
+        - /url: "#/theme/colors"
+        - img
+        - generic [ref=e20]: Colors
+      - link "Typography" [ref=e22] [cursor=pointer]:
+        - /url: "#/theme/typography#headings"
+        - img
+        - generic [ref=e23]: Typography
+      - generic [ref=e24]: Components
+      - link "Base" [ref=e26] [cursor=pointer]:
+        - /url: ""
+        - img
+        - text: Base
+      - link "Buttons" [ref=e28] [cursor=pointer]:
+        - /url: ""
+        - img
+        - text: Buttons
+      - link "Forms" [ref=e30] [cursor=pointer]:
+        - /url: ""
+        - img
+        - text: Forms
+      - link "Charts" [ref=e32] [cursor=pointer]:
+        - /url: "#/charts"
+        - img
+        - generic [ref=e33]: Charts
+      - link "Icons" [ref=e35] [cursor=pointer]:
+        - /url: ""
+        - img
+        - text: Icons
+      - link "Notifications" [ref=e37] [cursor=pointer]:
+        - /url: ""
+        - img
+        - text: Notifications
+      - link "Widgets NEW" [ref=e39] [cursor=pointer]:
+        - /url: "#/widgets"
+        - img
+        - generic [ref=e40]: Widgets
+        - generic [ref=e41]: NEW
+      - generic [ref=e42]: Extras
+      - link "Pages" [ref=e44] [cursor=pointer]:
+        - /url: ""
+        - img
+        - text: Pages
+      - generic [ref=e45]: Links
+      - link "Docs" [ref=e47] [cursor=pointer]:
+        - /url: https://coreui.io/angular/docs/
+        - img
+        - generic [ref=e48]: Docs
+    - button "Toggle sidebar fold" [ref=e53] [cursor=pointer]
+  - generic [ref=e54]:
+    - banner [ref=e55]:
+      - generic [ref=e56]:
+        - button "Toggle navigation" [ref=e57] [cursor=pointer]:
+          - img
+        - navigation [ref=e58]:
+          - link "Dashboard" [ref=e60] [cursor=pointer]:
+            - /url: "#/dashboard"
+          - link "Users" [ref=e62] [cursor=pointer]:
+            - /url: "#/users"
+          - link "Settings" [ref=e64] [cursor=pointer]:
+            - /url: "#/settings"
+        - navigation [ref=e65]:
+          - generic [ref=e66] [cursor=pointer]:
+            - img
+          - generic [ref=e67] [cursor=pointer]:
+            - img
+          - generic [ref=e68] [cursor=pointer]:
+            - img
+        - navigation [ref=e69]:
+          - button "Open theme picker" [ref=e73] [cursor=pointer]:
+            - img
+        - navigation [ref=e76]:
+          - button "Open user menu" [ref=e78] [cursor=pointer]:
+            - img "User avatar" [ref=e80]
+      - navigation "breadcrumb" [ref=e84]:
+        - link "Home" [ref=e86] [cursor=pointer]:
+          - /url: "#/"
+        - generic [ref=e87]:
+          - text: /
+          - generic [ref=e88]: Dashboard
+    - generic [ref=e91]:
+      - generic [ref=e93]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - generic [ref=e98]:
+                - text: 26K
+                - generic [ref=e99]:
+                  - text: (-12.4%
+                  - img
+                  - text: )
+              - generic [ref=e100]: Users
+            - button "Open dropdown" [ref=e102] [cursor=pointer]:
+              - img
+          - img [ref=e104]
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - generic [ref=e108]:
+              - generic [ref=e109]:
+                - text: $6.200
+                - generic [ref=e110]:
+                  - text: (40.9%
+                  - img
+                  - text: )
+              - generic [ref=e111]: Income
+            - button "Open dropdown" [ref=e113] [cursor=pointer]:
+              - img
+          - img [ref=e115]
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]:
+                - text: "2.49"
+                - generic [ref=e121]:
+                  - text: (84.7%
+                  - img
+                  - text: )
+              - generic [ref=e122]: Conversion Rate
+            - button "Open dropdown" [ref=e124] [cursor=pointer]:
+              - img
+          - img [ref=e126]
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]:
+                - text: 44K
+                - generic [ref=e132]:
+                  - text: (-23.6%
+                  - img
+                  - text: )
+              - generic [ref=e133]: Sessions
+            - button "Open dropdown" [ref=e135] [cursor=pointer]:
+              - img
+          - img [ref=e137]
+      - generic [ref=e138]:
+        - generic [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - heading "Traffic" [level=4] [ref=e142]
+              - generic [ref=e143]: January - December 2023
+            - generic [ref=e144]:
+              - button "Download" [ref=e145] [cursor=pointer]:
+                - img
+              - group [ref=e146]:
+                - radio "Day"
+                - generic [ref=e147] [cursor=pointer]: Day
+                - radio "Month" [checked]
+                - generic [ref=e148] [cursor=pointer]: Month
+                - radio "Year"
+                - generic [ref=e149] [cursor=pointer]: Year
+          - img [ref=e151]: Main chart
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - generic [ref=e155]: Visits
+            - strong [ref=e156]: 29.703 Users (40%)
+            - progressbar "User visits" [ref=e157]:
+              - progressbar [ref=e158]
+          - generic [ref=e159]:
+            - generic [ref=e160]: Unique
+            - generic [ref=e161]: 24.093 Users (20%)
+            - progressbar "Unique users" [ref=e162]:
+              - progressbar [ref=e163]
+          - generic [ref=e164]:
+            - generic [ref=e165]: Page views
+            - generic [ref=e166]: 78.706 Views (60%)
+            - progressbar "Page views" [ref=e167]:
+              - progressbar [ref=e168]
+          - generic [ref=e169]:
+            - generic [ref=e170]: New Users
+            - generic [ref=e171]: 22.123 Users (80%)
+            - progressbar "New users" [ref=e172]:
+              - progressbar [ref=e173]
+          - generic [ref=e174]:
+            - generic [ref=e175]: Bounce Rate
+            - generic [ref=e176]: Average Rate (40.15%)
+            - progressbar "Bounce rate" [ref=e177]:
+              - progressbar [ref=e178]
+      - generic [ref=e180]:
+        - generic [ref=e182]:
+          - generic [ref=e183]:
+            - img
+            - img [ref=e185]: c-chartjs-5
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - generic [ref=e188]: 89K
+              - generic [ref=e189]: friends
+            - generic [ref=e191]:
+              - generic [ref=e192]: "459"
+              - generic [ref=e193]: feeds
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - img
+            - img [ref=e198]: c-chartjs-6
+          - generic [ref=e199]:
+            - generic [ref=e200]:
+              - generic [ref=e201]: 973k
+              - generic [ref=e202]: followers
+            - generic [ref=e204]:
+              - generic [ref=e205]: "1.792"
+              - generic [ref=e206]: tweets
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - img
+            - img [ref=e211]: c-chartjs-7
+          - generic [ref=e212]:
+            - generic [ref=e213]:
+              - generic [ref=e214]: "500"
+              - generic [ref=e215]: contacts
+            - generic [ref=e217]:
+              - generic [ref=e218]: "1.292"
+              - generic [ref=e219]: feeds
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - img
+            - img [ref=e224]: c-chartjs-8
+          - generic [ref=e225]:
+            - generic [ref=e226]:
+              - generic [ref=e227]: 12+
+              - generic [ref=e228]: events
+            - generic [ref=e230]:
+              - generic [ref=e231]: "4"
+              - generic [ref=e232]: meetings
+      - generic [ref=e235]:
+        - generic [ref=e236]: Traffic & Sales
+        - generic [ref=e238]:
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e242]:
+                - generic [ref=e243]: New Clients
+                - generic [ref=e244]: 9,123
+              - generic [ref=e246]:
+                - generic [ref=e247]: Recurring Clients
+                - generic [ref=e248]: 22,643
+            - separator [ref=e249]
+            - generic [ref=e250]:
+              - generic [ref=e251]: Monday
+              - generic [ref=e252]:
+                - progressbar "Monday new clients" [ref=e253]:
+                  - progressbar [ref=e254]
+                - progressbar "Monday recurring clients" [ref=e255]:
+                  - progressbar [ref=e256]
+            - generic [ref=e257]:
+              - generic [ref=e258]: Tuesday
+              - generic [ref=e259]:
+                - progressbar "Tuesday new clients" [ref=e260]:
+                  - progressbar [ref=e261]
+                - progressbar "Tuesday recurring clients" [ref=e262]:
+                  - progressbar [ref=e263]
+            - generic [ref=e264]:
+              - generic [ref=e265]: Wednesday
+              - generic [ref=e266]:
+                - progressbar "Wednesday new clients" [ref=e267]:
+                  - progressbar [ref=e268]
+                - progressbar "Wednesday recurring clients" [ref=e269]:
+                  - progressbar [ref=e270]
+            - generic [ref=e271]:
+              - generic [ref=e272]: Thursday
+              - generic [ref=e273]:
+                - progressbar "Thursday new clients" [ref=e274]:
+                  - progressbar [ref=e275]
+                - progressbar "Thursday recurring clients" [ref=e276]:
+                  - progressbar [ref=e277]
+            - generic [ref=e278]:
+              - generic [ref=e279]: Friday
+              - generic [ref=e280]:
+                - progressbar "Friday new clients" [ref=e281]:
+                  - progressbar [ref=e282]
+                - progressbar "Friday recurring clients" [ref=e283]:
+                  - progressbar [ref=e284]
+            - generic [ref=e285]:
+              - generic [ref=e286]: Saturday
+              - generic [ref=e287]:
+                - progressbar "Saturday new clients" [ref=e288]:
+                  - progressbar [ref=e289]
+                - progressbar "Saturday recurring clients" [ref=e290]:
+                  - progressbar [ref=e291]
+            - generic [ref=e292]:
+              - generic [ref=e293]: Sunday
+              - generic [ref=e294]:
+                - progressbar "Sunday new clients" [ref=e295]:
+                  - progressbar [ref=e296]
+                - progressbar "Sunday recurring clients" [ref=e297]:
+                  - progressbar [ref=e298]
+            - generic [ref=e300]:
+              - superscript [ref=e301]
+              - text: New clients
+              - superscript [ref=e303]
+              - text: Recurring clients
+          - generic [ref=e305]:
+            - generic [ref=e306]:
+              - generic [ref=e308]:
+                - generic [ref=e309]: Page views
+                - generic [ref=e310]: 78,623
+              - generic [ref=e312]:
+                - generic [ref=e313]: Organic
+                - generic [ref=e314]: 49,123
+            - separator [ref=e315]
+            - generic [ref=e316]:
+              - generic [ref=e317]:
+                - img
+                - generic [ref=e318]: Male
+                - generic [ref=e319]: 43%
+              - progressbar "Male users" [ref=e321]:
+                - progressbar [ref=e322]
+            - generic [ref=e323]:
+              - generic [ref=e324]:
+                - img
+                - generic [ref=e325]: Female
+                - generic [ref=e326]: 37%
+              - progressbar "Feale users" [ref=e328]:
+                - progressbar [ref=e329]
+            - generic [ref=e330]:
+              - generic [ref=e331]:
+                - img
+                - generic [ref=e332]: Organic Search
+                - generic [ref=e333]: 191,235 (56%)
+              - progressbar "Organic search" [ref=e335]:
+                - progressbar [ref=e336]
+            - generic [ref=e337]:
+              - generic [ref=e338]:
+                - img
+                - generic [ref=e339]: Facebook
+                - generic [ref=e340]: 51,223 (15%)
+              - progressbar "Facebook" [ref=e342]:
+                - progressbar [ref=e343]
+            - generic [ref=e344]:
+              - generic [ref=e345]:
+                - img
+                - generic [ref=e346]: Twitter
+                - generic [ref=e347]: 37,564 (11%)
+              - progressbar "Twitter" [ref=e349]:
+                - progressbar [ref=e350]
+            - generic [ref=e351]:
+              - generic [ref=e352]:
+                - img
+                - generic [ref=e353]: LinkedIn
+                - generic [ref=e354]: 27,319 (8%)
+              - progressbar "LinkedIn" [ref=e356]:
+                - progressbar [ref=e357]
+            - button "Options" [ref=e359] [cursor=pointer]:
+              - img
+      - table [ref=e365]:
+        - rowgroup [ref=e366]:
+          - row "User Country Usage Payment Method Activity" [ref=e367]:
+            - columnheader [ref=e368]:
+              - img
+            - columnheader "User" [ref=e369]
+            - columnheader "Country" [ref=e370]
+            - columnheader "Usage" [ref=e371]
+            - columnheader "Payment Method" [ref=e372]
+            - columnheader "Activity" [ref=e373]
+        - rowgroup [ref=e374]:
+          - 'row "Yiorgos Avraamu New | Registered: Jan 1, 2021 50% Jun 11, 2021 - Jul 10, 2021 50 Last login 10 sec ago" [ref=e375]':
+            - cell [ref=e376]
+            - 'cell "Yiorgos Avraamu New | Registered: Jan 1, 2021" [ref=e379]':
+              - generic [ref=e380]: Yiorgos Avraamu
+              - generic [ref=e381]: "New | Registered: Jan 1, 2021"
+            - cell [ref=e382]:
+              - img
+            - cell "50% Jun 11, 2021 - Jul 10, 2021 50" [ref=e383]:
+              - generic [ref=e384]:
+                - strong [ref=e386]: 50%
+                - generic [ref=e387]: Jun 11, 2021 - Jul 10, 2021
+              - progressbar "Usage" [ref=e388]:
+                - progressbar [ref=e389]
+            - cell [ref=e390]:
+              - img
+            - cell "Last login 10 sec ago" [ref=e391]:
+              - generic [ref=e392]: Last login
+              - generic [ref=e393]: 10 sec ago
+          - 'row "Avram Tarasios Recurring | Registered: Jan 1, 2021 10% Jun 11, 2021 - Jul 10, 2021 10 Last login 5 minutes ago" [ref=e394]':
+            - cell [ref=e395]
+            - 'cell "Avram Tarasios Recurring | Registered: Jan 1, 2021" [ref=e398]':
+              - generic [ref=e399]: Avram Tarasios
+              - generic [ref=e400]: "Recurring | Registered: Jan 1, 2021"
+            - cell [ref=e401]:
+              - img
+            - cell "10% Jun 11, 2021 - Jul 10, 2021 10" [ref=e402]:
+              - generic [ref=e403]:
+                - strong [ref=e405]: 10%
+                - generic [ref=e406]: Jun 11, 2021 - Jul 10, 2021
+              - progressbar "Usage" [ref=e407]:
+                - progressbar [ref=e408]
+            - cell [ref=e409]:
+              - img
+            - cell "Last login 5 minutes ago" [ref=e410]:
+              - generic [ref=e411]: Last login
+              - generic [ref=e412]: 5 minutes ago
+          - 'row "Quintin Ed New | Registered: Jan 1, 2021 74% Jun 11, 2021 - Jul 10, 2021 74 Last login 1 hour ago" [ref=e413]':
+            - cell [ref=e414]
+            - 'cell "Quintin Ed New | Registered: Jan 1, 2021" [ref=e417]':
+              - generic [ref=e418]: Quintin Ed
+              - generic [ref=e419]: "New | Registered: Jan 1, 2021"
+            - cell [ref=e420]:
+              - img
+            - cell "74% Jun 11, 2021 - Jul 10, 2021 74" [ref=e421]:
+              - generic [ref=e422]:
+                - strong [ref=e424]: 74%
+                - generic [ref=e425]: Jun 11, 2021 - Jul 10, 2021
+              - progressbar "Usage" [ref=e426]:
+                - progressbar [ref=e427]
+            - cell [ref=e428]:
+              - img
+            - cell "Last login 1 hour ago" [ref=e429]:
+              - generic [ref=e430]: Last login
+              - generic [ref=e431]: 1 hour ago
+          - 'row "Enéas Kwadwo Sleep | Registered: Jan 1, 2021 98% Jun 11, 2021 - Jul 10, 2021 98 Last login Last month" [ref=e432]':
+            - cell [ref=e433]
+            - 'cell "Enéas Kwadwo Sleep | Registered: Jan 1, 2021" [ref=e436]':
+              - generic [ref=e437]: Enéas Kwadwo
+              - generic [ref=e438]: "Sleep | Registered: Jan 1, 2021"
+            - cell [ref=e439]:
+              - img
+            - cell "98% Jun 11, 2021 - Jul 10, 2021 98" [ref=e440]:
+              - generic [ref=e441]:
+                - strong [ref=e443]: 98%
+                - generic [ref=e444]: Jun 11, 2021 - Jul 10, 2021
+              - progressbar "Usage" [ref=e445]:
+                - progressbar [ref=e446]
+            - cell [ref=e447]:
+              - img
+            - cell "Last login Last month" [ref=e448]:
+              - generic [ref=e449]: Last login
+              - generic [ref=e450]: Last month
+          - 'row "Agapetus Tadeáš New | Registered: Jan 1, 2021 22% Jun 11, 2021 - Jul 10, 2021 22 Last login Last week" [ref=e451]':
+            - cell [ref=e452]
+            - 'cell "Agapetus Tadeáš New | Registered: Jan 1, 2021" [ref=e455]':
+              - generic [ref=e456]: Agapetus Tadeáš
+              - generic [ref=e457]: "New | Registered: Jan 1, 2021"
+            - cell [ref=e458]:
+              - img
+            - cell "22% Jun 11, 2021 - Jul 10, 2021 22" [ref=e459]:
+              - generic [ref=e460]:
+                - strong [ref=e462]: 22%
+                - generic [ref=e463]: Jun 11, 2021 - Jul 10, 2021
+              - progressbar "Usage" [ref=e464]:
+                - progressbar [ref=e465]
+            - cell [ref=e466]:
+              - img
+            - cell "Last login Last week" [ref=e467]:
+              - generic [ref=e468]: Last login
+              - generic [ref=e469]: Last week
+          - 'row "Friderik Dávid New | Registered: Jan 1, 2021 43% Jun 11, 2021 - Jul 10, 2021 43 Last login Yesterday" [ref=e470]':
+            - cell [ref=e471]
+            - 'cell "Friderik Dávid New | Registered: Jan 1, 2021" [ref=e474]':
+              - generic [ref=e475]: Friderik Dávid
+              - generic [ref=e476]: "New | Registered: Jan 1, 2021"
+            - cell [ref=e477]:
+              - img
+            - cell "43% Jun 11, 2021 - Jul 10, 2021 43" [ref=e478]:
+              - generic [ref=e479]:
+                - strong [ref=e481]: 43%
+                - generic [ref=e482]: Jun 11, 2021 - Jul 10, 2021
+              - progressbar "Usage" [ref=e483]:
+                - progressbar [ref=e484]
+            - cell [ref=e485]:
+              - img
+            - cell "Last login Yesterday" [ref=e486]:
+              - generic [ref=e487]: Last login
+              - generic [ref=e488]: Yesterday
+    - contentinfo [ref=e489]:
+      - generic [ref=e490]:
+        - link "CoreUI" [ref=e491] [cursor=pointer]:
+          - /url: https://coreui.io/
+        - text: © 2025 creativeLabs
+      - generic [ref=e492]:
+        - text: Powered by
+        - link "CoreUI for Angular" [ref=e493] [cursor=pointer]:
+          - /url: https://coreui.io/angular
+```
