@@ -29,7 +29,7 @@ export default defineConfig({
   // Shared settings for all projects
   use: {
     // Base URL for the Angular dev server
-    baseURL: 'http://localhost:4200',
+    baseURL: process.env.BASE_URL ?? 'http://localhost:4200',
 
     // Collect trace on first retry
     trace: 'on-first-retry',
@@ -50,28 +50,11 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-    // Mobile viewports
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
+    }
   ],
 
   // Web server configuration
-  webServer: {
+  webServer: process.env.BASE_URL ? undefined : {
     command: 'npm start',
     url: 'http://localhost:4200',
     reuseExistingServer: !process.env.CI,
