@@ -5,7 +5,7 @@ app_name: CoreUIAdmin
 app_type: Frontend Application (Angular)
 branch: deploy-to-aws-20260127_182622-sergeyka
 created: 2026-01-27T18:30:00Z
-last_updated: 2026-01-27T18:30:00Z
+last_updated: 2026-01-27T18:32:00Z
 ---
 
 # Deployment Plan: CoreUI Admin Template
@@ -16,10 +16,10 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
-- [...] Step 1: Create Deployment Plan
-- [ ] Step 2: Create Deploy Branch
-- [ ] Step 3: Detect Build Configuration
-- [ ] Step 4: Validate Prerequisites
+- [x] Step 1: Create Deployment Plan
+- [x] Step 2: Create Deploy Branch
+- [x] Step 3: Detect Build Configuration
+- [...] Step 4: Validate Prerequisites
 - [ ] Step 5: Revisit Deployment Plan
 
 ## Phase 2: Build CDK Infrastructure
@@ -38,10 +38,12 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
-- Framework: Angular 20
+- Framework: Angular 20 (SPA)
 - Package Manager: npm
 - Build Command: npm run build
-- Output Directory: (to be determined)
+- Output Directory: dist/coreui-free-angular-admin-template/browser
+- Base Path: / (root deployment)
+- Entry Point: index.html
 - Deployment URL: (after completion)
 - Stack name: (after creation)
 - Distribution ID: (after creation)
