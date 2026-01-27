@@ -5,7 +5,7 @@ app_name: CoreUIAdmin
 app_type: Frontend Application (Angular 20)
 branch: deploy-to-aws
 created: 2026-01-27T11:31:00Z
-last_updated: 2026-01-27T11:37:00Z
+last_updated: 2026-01-27T11:46:00Z
 ---
 
 # Deployment Plan: CoreUI Admin
@@ -29,8 +29,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -44,10 +44,13 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Output Directory: dist/coreui-free-angular-admin-template/browser
 - Base Path: / (root)
 - CloudFront Config: SPA with error responses to /index.html
-- Deployment URL: (after completion)
-- Stack Name: (after creation)
-- Distribution ID: (after creation)
-- S3 Bucket Name: (after creation)
+- Deployment URL: https://d2eqlskre3l5yi.cloudfront.net
+- Stack Name: CoreUIAdminFrontend-preview-sergeyka
+- Distribution ID: E3HRO79TEQH6NW
+- S3 Bucket Name: coreuiadminfrontend-preview-cftos3s3bucketcae9f2be-0w4n9pzx4bgp
+- S3 Log Bucket: coreuiadminfrontend-previ-cftos3s3loggingbucket64b-6mweepltxhls
+- CloudFront Log Bucket: coreuiadminfrontend-previ-cftos3cloudfrontloggingb-kbxaixbb8q94
+- Deployment Timestamp: 2026-01-27T11:45:50Z
 
 ## Recovery Guide
 
