@@ -31,8 +31,17 @@ customize your project for almost any device – be it Mobile, Web or WebApp –
 - [CoreUI Angular Demo](https://coreui.io/angular/demo/5.0/free/)
 - [CoreUI Angular Docs](https://coreui.io/angular/docs/)
 
+## Deployment
+
+Deployed at: https://d2eqlskre3l5yi.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+
+Deployment command: `./scripts/deploy.sh`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+
 ## Table of Contents
 
+* [Deployment](#deployment)
 * [Versions](#versions)
 * [CoreUI Pro](#coreui-pro)
 * [Quick Start](#quick-start)
