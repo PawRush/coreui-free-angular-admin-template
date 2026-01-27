@@ -10,13 +10,15 @@ last_updated: 2026-01-27T11:46:00Z
 
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d2eqlskre3l5yi.cloudfront.net
+Your app has a CodePipeline pipeline. Changes on GitHub branch **deploy-to-aws** will be deployed automatically to production. This is managed by CloudFormation stack **CoreUIAdminPipelineStack**.
 
-**Next Step: Automate Deployments**
+**Production URL**: Will be available after pipeline completes deployment
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+**Preview URL**: https://d2eqlskre3l5yi.cloudfront.net (manual deployment)
 
-Services used: CloudFront, S3, CloudFormation, IAM
+**Pipeline Console**: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/CoreUIAdminPipeline/view
+
+Services used: CodePipeline, CodeBuild, CodeConnections, CloudFront, S3, CloudFormation, IAM
 
 Questions? Ask your Coding Agent:
  - What resources were deployed to AWS?
@@ -25,17 +27,20 @@ Questions? Ask your Coding Agent:
 ## Quick Commands
 
 ```bash
+# View pipeline status
+aws codepipeline get-pipeline-state --name "CoreUIAdminPipeline" --query 'stageStates[*].[stageName,latestExecution.status]' --output table
+
+# View build logs
+aws logs tail "/aws/codebuild/CoreUIAdminPipelineStack-Synth" --follow
+
+# Trigger pipeline manually
+aws codepipeline start-pipeline-execution --name "CoreUIAdminPipeline"
+
 # View deployment status
+aws cloudformation describe-stacks --stack-name "CoreUIAdminFrontend-prod" --query 'Stacks[0].StackStatus' --output text
+
+# View preview deployment status
 aws cloudformation describe-stacks --stack-name "CoreUIAdminFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
-
-# Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id "E3HRO79TEQH6NW" --paths "/*"
-
-# View CloudFront access logs (last hour)
-aws s3 ls "s3://coreuiadminfrontend-previ-cftos3cloudfrontloggingb-kbxaixbb8q94/" --recursive | tail -20
-
-# Redeploy
-./scripts/deploy.sh
 ```
 
 ## Production Readiness
@@ -72,6 +77,51 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ## Phase 3: Deploy and Validate
 - [x] Step 10: Execute CDK Deployment
 - [x] Step 11: Validate CloudFormation Stack
+
+## Phase 4: Update Documentation
+- [x] Step 12: Finalize Deployment Plan
+- [x] Step 13: Update README.md
+
+---
+
+# CI/CD Pipeline Setup
+
+## Pipeline Configuration
+
+- **Pipeline Name**: CoreUIAdminPipeline
+- **Pipeline ARN**: arn:aws:codepipeline:us-east-1:126593893432:CoreUIAdminPipeline
+- **Stack Name**: CoreUIAdminPipelineStack
+- **Repository**: PawRush/coreui-free-angular-admin-template
+- **Branch**: deploy-to-aws
+- **CodeConnection Status**: AVAILABLE
+
+## Pipeline Stages
+
+1. **Source**: Pull from GitHub via CodeConnection
+2. **Build (Synth)**: Run tests + CDK synthesis
+   - Unit tests (48 tests)
+   - Secret scanning with @secretlint
+   - CDK synth
+3. **UpdatePipeline**: Self-mutation (if pipeline changed)
+4. **Assets**: Publish file/Docker assets
+5. **Deploy**: Deploy CoreUIAdminFrontend-prod stack
+
+## Deployment Workflow
+
+Changes pushed to the `deploy-to-aws` branch automatically trigger the pipeline:
+
+```bash
+# Make changes locally
+git add .
+git commit -m "your message"
+git push origin deploy-to-aws
+```
+
+The pipeline will:
+1. Pull latest code from GitHub
+2. Run unit tests
+3. Build the Angular application
+4. Deploy to production CloudFront distribution
 
 ## Phase 4: Update Documentation
 - [x] Step 12: Finalize Deployment Plan
