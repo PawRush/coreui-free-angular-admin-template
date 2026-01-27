@@ -1,14 +1,14 @@
 ---
-sop_name: deploy-frontend-app
+sop_name: setup-pipeline
 repo_name: coreui-free-angular-admin-template
 app_name: CoreUIAdmin
-app_type: Frontend Application (Angular 20)
+app_type: CI/CD Pipeline
 branch: deploy-to-aws
-created: 2026-01-27T11:31:00Z
-last_updated: 2026-01-27T11:46:00Z
+created: 2026-01-27T11:47:00Z
+last_updated: 2026-01-27T11:52:00Z
 ---
 
-# Deployment Plan: CoreUI Admin
+# Deployment Plan: CoreUI Admin Pipeline
 
 Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
 
@@ -17,50 +17,46 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
 - [x] Step 1: Create Deployment Plan
-- [x] Step 2: Create Deploy Branch
-- [x] Step 3: Detect Build Configuration
-- [x] Step 4: Validate Prerequisites
-- [x] Step 5: Revisit Deployment Plan
+- [x] Step 2: Detect Existing Infrastructure
+  - [x] 2.1: Detect stacks and frontend
+  - [x] 2.2: Detect app name and git repository
+  - [x] 2.3: Determine quality checks
+  - [x] 2.4: User confirmation
+  - [x] 2.5: Create CodeConnection (using existing)
 
-## Phase 2: Build CDK Infrastructure
-- [x] Step 6: Initialize CDK Foundation
-- [x] Step 7: Generate CDK Stack
-- [x] Step 8: Create Deployment Script
-- [x] Step 9: Validate CDK Synth
+## Phase 2: Build and Deploy Pipeline
+- [ ] Step 3: Create CDK Pipeline Stack
+- [ ] Step 4: CDK Bootstrap
+- [ ] Step 5: Deploy Pipeline
+  - [ ] 5.1: Push to remote
+  - [ ] 5.2: Authorize CodeConnection
+  - [ ] 5.3: Deploy pipeline stack
+  - [ ] 5.4: Trigger pipeline
+- [ ] Step 6: Monitor Pipeline
 
-## Phase 3: Deploy and Validate
-- [x] Step 10: Execute CDK Deployment
-- [x] Step 11: Validate CloudFormation Stack
+## Phase 3: Documentation
+- [ ] Step 7: Finalize Deployment Plan
+- [ ] Step 8: Update README.md
 
-## Phase 4: Update Documentation
-- [ ] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
+## Pipeline Info
 
-## Deployment Info
-
-- Framework: Angular 20 (SPA)
-- Package Manager: npm
-- Build Command: npm run build
-- Output Directory: dist/coreui-free-angular-admin-template/browser
-- Base Path: / (root)
-- CloudFront Config: SPA with error responses to /index.html
-- Deployment URL: https://d2eqlskre3l5yi.cloudfront.net
-- Stack Name: CoreUIAdminFrontend-preview-sergeyka
-- Distribution ID: E3HRO79TEQH6NW
-- S3 Bucket Name: coreuiadminfrontend-preview-cftos3s3bucketcae9f2be-0w4n9pzx4bgp
-- S3 Log Bucket: coreuiadminfrontend-previ-cftos3s3loggingbucket64b-6mweepltxhls
-- CloudFront Log Bucket: coreuiadminfrontend-previ-cftos3cloudfrontloggingb-kbxaixbb8q94
-- Deployment Timestamp: 2026-01-27T11:45:50Z
+- CodeConnection ARN: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Repository: PawRush/coreui-free-angular-admin-template
+- Branch: deploy-to-aws
+- Quality Checks: Unit tests enabled (48 tests)
+- Pipeline Name: CoreUIAdminPipeline
+- Pipeline URL: (after creation)
 
 ## Recovery Guide
 
 ```bash
 # Rollback
 cd infra
-cdk destroy "<StackName>"
+cdk destroy "<PipelineStackName>"
 
 # Redeploy
-./scripts/deploy.sh
+cd infra
+npm run deploy:pipeline
 ```
 
 ## Issues Encountered
@@ -69,7 +65,7 @@ None.
 
 ## Session Log
 
-### Session 1 - 2026-01-27T11:31:00Z
+### Session 1 - 2026-01-27T11:47:00Z
 Agent: Claude Sonnet 4.5
-Progress: Creating deployment plan
-Next: Step 2 - Create deploy branch
+Progress: Creating pipeline deployment plan
+Next: Step 2 - Detect existing infrastructure
