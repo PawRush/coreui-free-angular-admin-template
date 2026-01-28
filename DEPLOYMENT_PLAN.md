@@ -1,72 +1,60 @@
 ---
-sop_name: deploy-frontend-app
+sop_name: setup-pipeline
 repo_name: coreui-free-angular-admin-template
 app_name: CoreUIAdmin
-app_type: Frontend Application
+app_type: CI/CD Pipeline
 branch: deploy-to-aws-20260128_131744-sergeyka
-created: 2026-01-28T13:20:00Z
-last_updated: 2026-01-28T13:34:00Z
+created: 2026-01-28T13:40:00Z
+last_updated: 2026-01-28T13:40:00Z
 ---
 
-# Deployment Plan: CoreUI Admin Template
+# Pipeline Setup Plan: CoreUI Admin Template
 
 Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
 
 **IMPORTANT**: Update this plan after EACH step completes. Mark the step `[x]` and update `last_updated` timestamp.
 
-## Build Configuration
-
-| Item | Value |
-|------|-------|
-| Framework | Angular 20 |
-| Package manager | npm |
-| Build command | `npm run build` |
-| Output directory | `dist/coreui-free-angular-admin-template/browser` |
-| Base path | `/` |
-| Entry point | `index.html` |
-| App type | SPA (Single Page Application) |
-
 ## Phase 1: Gather Context and Configure
-- [x] Step 0: Inform User of Execution Flow
-- [x] Step 1: Create Deployment Plan
-- [x] Step 2: Create Deploy Branch
-- [x] Step 3: Detect Build Configuration
-- [x] Step 4: Validate Prerequisites
-- [x] Step 5: Revisit Deployment Plan
+- [ ] Step 0: Inform User of Execution Flow
+- [ ] Step 1: Create Deployment Plan
+- [ ] Step 2: Detect Existing Infrastructure
+  - [ ] 2.1: Detect stacks and frontend
+  - [ ] 2.2: Detect app name and git repository
+  - [ ] 2.3: Determine quality checks
+  - [ ] 2.4: User confirmation
+  - [ ] 2.5: Use existing CodeConnection
 
-## Phase 2: Build CDK Infrastructure
-- [x] Step 6: Initialize CDK Foundation
-- [x] Step 7: Generate CDK Stack
-- [x] Step 8: Create Deployment Script
-- [x] Step 9: Validate CDK Synth
+## Phase 2: Build and Deploy Pipeline
+- [ ] Step 3: Create CDK Pipeline Stack
+- [ ] Step 4: CDK Bootstrap
+- [ ] Step 5: Deploy Pipeline
+  - [ ] 5.1: Push to remote
+  - [ ] 5.2: Verify CodeConnection (already authorized)
+  - [ ] 5.3: Deploy pipeline stack
+  - [ ] 5.4: Trigger pipeline
+- [ ] Step 6: Monitor Pipeline
 
-## Phase 3: Deploy and Validate
-- [x] Step 10: Execute CDK Deployment
-- [x] Step 11: Validate CloudFormation Stack
+## Phase 3: Documentation
+- [ ] Step 7: Finalize Deployment Plan
+- [ ] Step 8: Update README.md
 
-## Phase 4: Update Documentation
-- [ ] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
+## Pipeline Info
 
-## Deployment Info
-
-- Deployment URL: https://d3jagcdn7a5e60.cloudfront.net
-- Stack name: CoreUIAdminFrontend-preview-sergeyka
-- Distribution ID: EORJQLJMXHEP6
-- S3 Bucket: coreuiadminfrontend-preview-cftos3s3bucketcae9f2be-eldi9vwcquvs
-- S3 Log Bucket: coreuiadminfrontend-previ-cftos3s3loggingbucket64b-yzegcefronyp
-- CloudFront Log Bucket: coreuiadminfrontend-previ-cftos3cloudfrontloggingb-wy0gftyviajk
-- Deployment timestamp: 2026-01-28T13:33:38Z
+- Pipeline Name: [after creation]
+- Pipeline ARN: [after creation]
+- CodeConnection ARN: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Repository: [after detection]
+- Branch: deploy-to-aws-20260128_131744-sergeyka
 
 ## Recovery Guide
 
 ```bash
-# Rollback
+# Destroy pipeline
 cd infra
-npx cdk destroy "<StackName>"
+npx cdk destroy CoreUIAdminPipelineStack --context codeConnectionArn=arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
 
-# Redeploy
-./scripts/deploy.sh
+# Redeploy pipeline
+npm run deploy:pipeline
 ```
 
 ## Issues Encountered
@@ -75,7 +63,7 @@ None.
 
 ## Session Log
 
-### Session 1 - 2026-01-28T13:20:00Z
+### Session 1 - 2026-01-28T13:40:00Z
 Agent: Claude Sonnet 4.5
-Progress: Created deployment plan
-Next: Create deploy branch
+Progress: Creating pipeline deployment plan
+Next: Detect existing infrastructure
