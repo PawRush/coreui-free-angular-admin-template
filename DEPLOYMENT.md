@@ -10,13 +10,16 @@ last_updated: 2026-01-28T13:34:00Z
 
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d3jagcdn7a5e60.cloudfront.net
+Your app is deployed to AWS with automated CI/CD!
 
-**Next Step: Automate Deployments**
+**Preview Deployment:** https://d3jagcdn7a5e60.cloudfront.net
+**Production Deployment:** Will be available after pipeline completes
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+**Pipeline:** https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/CoreUIAdminPipeline/view
 
-Services used: CloudFront, S3, CloudFormation, IAM
+Deploy changes: `git push origin deploy-to-aws-20260128_131744-sergeyka`
+
+Services used: CodePipeline, CodeBuild, CodeConnections, CloudFront, S3, CloudFormation, IAM
 
 Questions? Ask your Coding Agent:
  - What resources were deployed to AWS?
@@ -25,16 +28,19 @@ Questions? Ask your Coding Agent:
 ## Quick Commands
 
 ```bash
-# View deployment status
-aws cloudformation describe-stacks --stack-name "CoreUIAdminFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
+# View pipeline status
+aws codepipeline get-pipeline-state --name "CoreUIAdminPipeline" --query 'stageStates[*].[stageName,latestExecution.status]' --output table
 
-# Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id "EORJQLJMXHEP6" --paths "/*"
+# View build logs
+aws logs tail "/aws/codebuild/PipelineBuildSynthCdkBuildP-e2vG1ny5lRvL" --follow
 
-# View CloudFront access logs (last hour)
-aws s3 ls "s3://coreuiadminfrontend-previ-cftos3cloudfrontloggingb-wy0gftyviajk/" --recursive | tail -20
+# Trigger pipeline manually
+aws codepipeline start-pipeline-execution --name "CoreUIAdminPipeline"
 
-# Redeploy
+# View production deployment status
+aws cloudformation describe-stacks --stack-name "CoreUIAdminFrontend-prod" --query 'Stacks[0].StackStatus' --output text
+
+# Manual deployment (preview)
 ./scripts/deploy.sh
 ```
 
@@ -114,9 +120,23 @@ npx cdk destroy "CoreUIAdminFrontend-preview-sergeyka"
 
 None.
 
+## Pipeline Info
+
+- Pipeline Name: CoreUIAdminPipeline
+- Pipeline ARN: arn:aws:codepipeline:us-east-1:126593893432:CoreUIAdminPipeline
+- CodeConnection: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Repository: PawRush/coreui-free-angular-admin-template
+- Branch: deploy-to-aws-20260128_131744-sergeyka
+- Quality Checks: Unit tests (48/48 passing), secret scanning
+
 ## Session Log
 
 ### Session 1 - 2026-01-28T13:20:00Z
 Agent: Claude Sonnet 4.5
 Progress: Complete deployment from analysis through to documentation
 Next: Production deployment (optional)
+
+### Session 2 - 2026-01-28T13:40:00Z
+Agent: Claude Sonnet 4.5
+Progress: Pipeline setup complete, automated deployments configured
+Next: Pipeline is running, production stack will be deployed automatically
