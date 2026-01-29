@@ -33,6 +33,7 @@ customize your project for almost any device – be it Mobile, Web or WebApp –
 
 ## Table of Contents
 
+* [Deployment](#deployment)
 * [Versions](#versions)
 * [CoreUI Pro](#coreui-pro)
 * [Quick Start](#quick-start)
@@ -44,6 +45,14 @@ customize your project for almost any device – be it Mobile, Web or WebApp –
 * [Creators](#creators)
 * [Community](#community)
 * [Copyright and License](#copyright-and-license)
+
+## Deployment
+
+Deployed at: https://d3x0qfm5sm6ox.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+
+Deployment command: `./scripts/deploy.sh`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
 
 ## Versions
 
