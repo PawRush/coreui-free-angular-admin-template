@@ -1,14 +1,14 @@
 ---
-sop_name: deploy-frontend-app
+sop_name: setup-pipeline
 repo_name: coreui-free-angular-admin-template
 app_name: CoreUI
-app_type: Frontend Application
+app_type: CI/CD Pipeline
 branch: deploy-to-aws-20260129_231512-sergeyka
-created: 2026-01-29T23:17:00Z
-last_updated: 2026-01-29T23:32:00Z
+created: 2026-01-29T23:33:00Z
+last_updated: 2026-01-29T23:33:00Z
 ---
 
-# Deployment Plan: CoreUI Angular Admin Template
+# Deployment Plan: CoreUI Pipeline Setup
 
 Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
 
@@ -17,70 +17,55 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
 - [x] Step 1: Create Deployment Plan
-- [x] Step 2: Create Deploy Branch
-- [x] Step 3: Detect Build Configuration
-- [x] Step 4: Validate Prerequisites
-- [...] Step 5: Revisit Deployment Plan
+- [x] Step 2: Detect Existing Infrastructure
+  - [x] 2.1: Detect stacks and frontend
+  - [x] 2.2: Detect app name and git repository
+  - [x] 2.3: Determine quality checks
+  - [x] 2.4: User confirmation
+  - [x] 2.5: Verify CodeConnection
 
-## Phase 2: Build CDK Infrastructure
-- [x] Step 6: Initialize CDK Foundation
-- [x] Step 7: Generate CDK Stack
-- [x] Step 8: Create Deployment Script
-- [x] Step 9: Validate CDK Synth
+## Phase 2: Build and Deploy Pipeline
+- [ ] Step 3: Create CDK Pipeline Stack
+- [ ] Step 4: CDK Bootstrap
+- [ ] Step 5: Deploy Pipeline
+  - [ ] 5.1: Push to remote
+  - [ ] 5.2: Authorize CodeConnection
+  - [ ] 5.3: Deploy pipeline stack
+  - [ ] 5.4: Trigger pipeline
+- [ ] Step 6: Monitor Pipeline
 
-## Phase 3: Deploy and Validate
-- [x] Step 10: Execute CDK Deployment
-- [x] Step 11: Validate CloudFormation Stack
+## Phase 3: Documentation
+- [ ] Step 7: Finalize Deployment Plan
+- [ ] Step 8: Update README.md
 
-## Phase 4: Update Documentation
-- [...] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
+## Pipeline Info
 
-## Deployment Info
-
-- Deployment URL: https://d3x0qfm5sm6ox.cloudfront.net
-- Stack name: CoreUIFrontend-preview-sergeyka
-- Distribution ID: EVUN71R03Y9CV
-- S3 Bucket: coreuifrontend-preview-serg-cftos3s3bucketcae9f2be-np6tygjmw22c
-- CloudFront Log Bucket: coreuifrontend-preview-se-cftos3cloudfrontloggingb-v2okrbffe34p
-- S3 Log Bucket: coreuifrontend-preview-se-cftos3s3loggingbucket64b-e0dtioqcavtt
-- Deployment timestamp: 2026-01-29T23:31:34Z
+- Pipeline name: [after creation]
+- Pipeline URL: [after creation]
+- CodeConnection ARN: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Repository: PawRush/coreui-free-angular-admin-template
+- Branch: deploy-to-aws-20260129_231512-sergeyka
+- Stack name: [after creation]
 
 ## Recovery Guide
 
 ```bash
 # Rollback
 cd infra
-cdk destroy "CoreUIFrontend-<environment>"
+npm run destroy:pipeline
 
-# Redeploy
-./scripts/deploy.sh
-
-# Manual resource cleanup (if cdk destroy fails)
-# 1. Delete CloudFront distribution (disable first, wait ~15 min)
-# 2. Empty and delete S3 buckets
-# 3. Delete CloudFormation stack
-# 4. Delete IAM roles
+# Manual cleanup
+aws codepipeline delete-pipeline --name "CoreUIPipeline"
+aws cloudformation delete-stack --stack-name "CoreUIPipelineStack"
 ```
 
 ## Issues Encountered
 
 None.
 
-## Build Configuration
-
-- Framework: Angular 20
-- Package manager: npm
-- Build command: `npm run build`
-- Output directory: `dist/coreui-free-angular-admin-template/browser/`
-- Base path: `/` (root)
-- Entry point: `index.html`
-- Application type: Single Page Application (SPA)
-- CloudFront config: Error responses to /index.html for client-side routing
-
 ## Session Log
 
-### Session 1 - 2026-01-29T23:32:00Z
+### Session 1 - 2026-01-29T23:33:00Z
 Agent: Claude Sonnet 4.5
-Progress: Deployment complete - All phases finished, application live at CloudFront URL
-Next: Finalize documentation
+Progress: Created pipeline deployment plan
+Next: Detect existing infrastructure
