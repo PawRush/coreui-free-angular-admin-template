@@ -216,11 +216,14 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Deployment
 
-Deployed at: https://d3j631bgrt0bpt.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+**Production**: Automated via AWS CodePipeline
+**Preview**: https://d3j631bgrt0bpt.cloudfront.net
 
-Deployment command: `./scripts/deploy.sh`
+Pipeline: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/CoreUIPipeline/view
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+Deploy: `git push origin deploy-to-aws-20260130_032535-sergeyka`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details. Created with the [setup-pipeline] and [deploy-frontend-app] Agent Standard Operation Procedures from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
 
 ## Creators
 

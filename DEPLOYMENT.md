@@ -10,13 +10,22 @@ last_updated: 2026-01-30T04:16:00Z
 
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d3j631bgrt0bpt.cloudfront.net
+Your app is deployed to AWS with automated CI/CD!
 
-**Next Step: Automate Deployments**
+**Production URL**: (pending - pipeline deploying)
+**Preview URL**: https://d3j631bgrt0bpt.cloudfront.net
+**Pipeline**: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/CoreUIPipeline/view
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+## Automated Deployments
 
-Services used: CloudFront, S3, CloudFormation, IAM
+Changes pushed to `deploy-to-aws-20260130_032535-sergeyka` branch automatically trigger the pipeline:
+
+```bash
+# Make changes, commit, and push
+git push origin deploy-to-aws-20260130_032535-sergeyka
+```
+
+Services used: CodePipeline, CodeBuild, CodeConnections, CloudFront, S3, CloudFormation, IAM
 
 Questions? Ask your Coding Agent:
  - What resources were deployed to AWS?
@@ -25,16 +34,22 @@ Questions? Ask your Coding Agent:
 ## Quick Commands
 
 ```bash
-# View deployment status
+# View pipeline status
+aws codepipeline get-pipeline-state --name "CoreUIPipeline" --query 'stageStates[*].[stageName,latestExecution.status]' --output table
+
+# View build logs
+aws logs tail "/aws/codebuild/PipelineBuildSynthCdkBuildP-" --since 10m --follow
+
+# Trigger pipeline manually
+aws codepipeline start-pipeline-execution --name "CoreUIPipeline"
+
+# View preview deployment status (manual deployments)
 aws cloudformation describe-stacks --stack-name "CoreUIFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
 
-# Invalidate CloudFront cache
+# Invalidate CloudFront cache (preview)
 aws cloudfront create-invalidation --distribution-id "E3U1YIULBG7A44" --paths "/*"
 
-# View CloudFront access logs (last hour)
-aws s3 ls "s3://coreuifrontend-preview-se-cftos3cloudfrontloggingb-y1ezdityf4jp/" --recursive | tail -20
-
-# Redeploy
+# Manual deployment (preview environment)
 ./scripts/deploy.sh
 ```
 
