@@ -5,7 +5,7 @@ app_name: CoreUIAdmin
 app_type: Frontend Application (Angular)
 branch: deploy-to-aws-20260130_032535-sergeyka
 created: 2026-01-30T04:04:00Z
-last_updated: 2026-01-30T04:10:00Z
+last_updated: 2026-01-30T04:16:00Z
 ---
 
 # Deployment Plan: CoreUI Admin Template
@@ -31,9 +31,9 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Phase 2 Checkpoint
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
-- [ ] Phase 3 Checkpoint
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
+- [x] Phase 3 Checkpoint
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -49,10 +49,12 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Base Path: /
 - Entry Point: index.html
 - Application Type: SPA
-- Deployment URL: (pending)
-- Stack Name: (pending)
-- Distribution ID: (pending)
-- S3 Bucket: (pending)
+- Deployment URL: https://d3j631bgrt0bpt.cloudfront.net
+- Stack Name: CoreUIFrontend-preview-sergeyka
+- Distribution ID: E3U1YIULBG7A44
+- S3 Bucket: coreuifrontend-preview-serg-cftos3s3bucketcae9f2be-tzqlnsqhrck3
+- S3 Log Bucket: coreuifrontend-preview-se-cftos3s3loggingbucket64b-fnypn4c0a2ie
+- CloudFront Log Bucket: coreuifrontend-preview-se-cftos3cloudfrontloggingb-y1ezdityf4jp
 
 ## Recovery Guide
 
