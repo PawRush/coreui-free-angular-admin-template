@@ -52,7 +52,13 @@ Deployed at: https://d1iv7uv3iio598.cloudfront.net, using the [deploy-frontend-a
 
 Deployment command: `./scripts/deploy.sh`
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+### Pipeline
+
+Pipeline: https://eu-central-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/CoreUIAdminPipeline/view
+
+Deploy: `git push origin deploy-to-aws-20260501_121659-kamielw`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details. Created with the [setup-pipeline] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
 
 ## Versions
 
