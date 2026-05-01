@@ -38,13 +38,17 @@ fi
 
 "${DEPLOY_CMD[@]}"
 
+REGION="${CDK_DEFAULT_REGION:-us-east-1}"
+
 FRONTEND_URL=$(aws cloudformation describe-stacks \
     --stack-name "CoreUIFrontend-${ENVIRONMENT}" \
+    --region "${REGION}" \
     --query 'Stacks[0].Outputs[?OutputKey==`WebsiteURL`].OutputValue' \
     --output text)
 
 DISTRIBUTION_ID=$(aws cloudformation describe-stacks \
     --stack-name "CoreUIFrontend-${ENVIRONMENT}" \
+    --region "${REGION}" \
     --query 'Stacks[0].Outputs[?OutputKey==`DistributionId`].OutputValue' \
     --output text)
 
