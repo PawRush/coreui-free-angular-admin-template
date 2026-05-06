@@ -17,7 +17,7 @@ const getDefaultEnvironment = (): string => {
 const environment = app.node.tryGetContext("environment") || getDefaultEnvironment();
 const account = process.env.CDK_DEFAULT_ACCOUNT;
 const region = process.env.CDK_DEFAULT_REGION || "us-east-1";
-const buildOutputPath = app.node.tryGetContext("buildPath") || "../dist/coreui-free-angular-admin-template";
+const buildOutputPath = app.node.tryGetContext("buildPath") || "../dist/coreui-free-angular-admin-template/browser";
 
 new FrontendStack(app, `CoreUIFrontend-${environment}`, {
   env: { account, region },
