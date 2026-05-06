@@ -33,11 +33,32 @@ customize your project for almost any device – be it Mobile, Web or WebApp –
 
 ## Deployment
 
-Deployed at: **https://d1iv7uv3iio598.cloudfront.net**, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+**Production**: https://d12x6r59p26l1d.cloudfront.net (automated via CI/CD)  
+**Preview**: https://d1iv7uv3iio598.cloudfront.net (manual deployment)
 
-Deployment command: `./scripts/deploy.sh`
+**Pipeline**: https://eu-central-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/CoreUIAdminPipeline/view
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+### Automated Deployment
+
+Push to the `deploy-to-aws-20260506_150212-kamielw` branch to trigger automatic deployment:
+
+```bash
+git push origin deploy-to-aws-20260506_150212-kamielw
+```
+
+The CI/CD pipeline will automatically run tests, build the app, and deploy to production.
+
+### Manual Deployment
+
+For preview environments:
+
+```bash
+./scripts/deploy.sh
+```
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details, pipeline configuration, and troubleshooting.
+
+Created with the [setup-pipeline] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
 
 ## Table of Contents
 
