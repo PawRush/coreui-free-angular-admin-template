@@ -5,7 +5,48 @@ app_name: CoreUIAdmin
 app_type: Frontend Application
 branch: deploy-to-aws-20260506_150212-kamielw
 created: 2026-05-06T15:32:00Z
-last_updated: 2026-05-06T15:41:00Z
+completed: 2026-05-06T15:42:00Z
+---
+
+# Deployment Summary
+
+Your app is deployed to AWS! Preview URL: **https://d1iv7uv3iio598.cloudfront.net**
+
+**Next Step: Automate Deployments**
+
+You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+
+Services used: CloudFront, S3, CloudFormation, IAM
+
+Questions? Ask your Coding Agent:
+ - What resources were deployed to AWS?
+ - How do I update my deployment?
+
+## Quick Commands
+
+```bash
+# View deployment status
+aws cloudformation describe-stacks --stack-name "CoreUIFrontend-preview-kamielw" --region eu-central-1 --query 'Stacks[0].StackStatus' --output text
+
+# Invalidate CloudFront cache
+aws cloudfront create-invalidation --distribution-id "E3763T1PFKP1ZX" --paths "/*"
+
+# View CloudFront access logs (last hour)
+aws s3 ls "s3://coreuifrontend-preview-ka-cftos3cloudfrontloggingb-gijqipbudesd/" --region eu-central-1 --recursive | tail -20
+
+# Redeploy
+./scripts/deploy.sh
+```
+
+## Production Readiness
+
+For production deployments, consider:
+- WAF Protection: Add AWS WAF with managed rules (Core Rule Set, Known Bad Inputs) and rate limiting
+- CSP Headers: Configure Content Security Policy in CloudFront response headers (`script-src 'self'`, `frame-ancestors 'none'`)
+- Custom Domain: Set up Route 53 and ACM certificate
+- Monitoring: CloudWatch alarms for 4xx/5xx errors and CloudFront metrics
+- Auth Redirect URLs: If using an auth provider (Auth0, Supabase, Firebase, Lovable, etc.), add your CloudFront URL to allowed redirect URLs
+
 ---
 
 # Deployment Plan: CoreUI Admin Template
@@ -39,10 +80,10 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ➡️ Phase 3 Checkpoint
 
 ## Phase 4: Update Documentation
-- [ ] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
+- [x] Step 12: Finalize Deployment Plan
+- [x] Step 13: Update README.md
 
-🎯 COMPLETION STEP
+🎯 COMPLETION STEP - COMPLETE
 
 ## Build Configuration
 
@@ -73,7 +114,7 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ```bash
 # Rollback
 cd infra
-cdk destroy "CoreUIAdminFrontend-<environment>"
+cdk destroy "CoreUIFrontend-preview-kamielw" --region eu-central-1
 
 # Redeploy
 ./scripts/deploy.sh
@@ -85,7 +126,11 @@ None.
 
 ## Session Log
 
-### Session 1 - 2026-05-06T15:32:00Z
+### Session 1 - 2026-05-06T15:32:00Z - 2026-05-06T15:42:00Z
 Agent: Claude Sonnet 4.5
-Progress: Created deployment plan
-Next: Create deploy branch
+Progress: Complete deployment from analysis through production deployment
+Status: SUCCESS
+- Analyzed codebase and determined Angular 20 SPA
+- Created CDK infrastructure with CloudFront + S3
+- Deployed to eu-central-1
+- Validated all resources and accessibility
