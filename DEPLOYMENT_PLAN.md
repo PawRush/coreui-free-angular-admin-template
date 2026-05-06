@@ -5,7 +5,7 @@ app_name: CoreUIAdmin
 app_type: Frontend Application
 branch: deploy-to-aws-20260506_150212-kamielw
 created: 2026-05-06T15:32:00Z
-last_updated: 2026-05-06T15:39:00Z
+last_updated: 2026-05-06T15:41:00Z
 ---
 
 # Deployment Plan: CoreUI Admin Template
@@ -33,8 +33,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ➡️ Phase 2 Checkpoint
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ➡️ Phase 3 Checkpoint
 
@@ -58,12 +58,15 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
-- Deployment URL: [pending]
-- Stack name: [pending]
-- Distribution ID: [pending]
-- S3 Bucket: [pending]
-- CloudFront Log Bucket: [pending]
-- S3 Log Bucket: [pending]
+- Deployment URL: https://d1iv7uv3iio598.cloudfront.net
+- Stack name: CoreUIFrontend-preview-kamielw
+- Distribution ID: E3763T1PFKP1ZX
+- Distribution Domain: d1iv7uv3iio598.cloudfront.net
+- S3 Bucket: coreuifrontend-preview-kami-cftos3s3bucketcae9f2be-ytfywl02fyvy
+- CloudFront Log Bucket: coreuifrontend-preview-ka-cftos3cloudfrontloggingb-gijqipbudesd
+- S3 Log Bucket: coreuifrontend-preview-ka-cftos3s3loggingbucket64b-qrp7tkziuxgj
+- Region: eu-central-1
+- Deployment Timestamp: 2026-05-06T13:38:34Z
 
 ## Recovery Guide
 
