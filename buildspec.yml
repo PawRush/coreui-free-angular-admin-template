@@ -1,0 +1,44 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Installing dependencies..."
+      - npm ci --prefer-offline --no-audit
+
+  pre_build:
+    commands:
+      - echo "Pre-build phase - checking environment..."
+      - node --version
+      - npm --version
+      - echo "Target S3 bucket - $S3_BUCKET"
+      - echo "CloudFront distribution - $DISTRIBUTION_ID"
+
+  build:
+    commands:
+      - echo "Building Angular application..."
+      - npm run build --prod
+      - echo "Build completed successfully"
+      - ls -la dist/coreui-free-angular-admin-template/browser/
+
+  post_build:
+    commands:
+      - echo "Deploying to S3..."
+      - aws s3 sync dist/coreui-free-angular-admin-template/browser/ s3://$S3_BUCKET/ --delete --cache-control "public,max-age=31536000,immutable" --exclude "index.html"
+      - aws s3 cp dist/coreui-free-angular-admin-template/browser/index.html s3://$S3_BUCKET/index.html --cache-control "public,max-age=0,must-revalidate"
+      - echo "Creating CloudFront invalidation..."
+      - INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*" --query 'Invalidation.Id' --output text)
+      - echo "Invalidation created - $INVALIDATION_ID"
+      - echo "Deployment complete!"
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist/coreui-free-angular-admin-template/browser
+
+cache:
+  paths:
+    - 'node_modules/**/*'
+    - '.angular/cache/**/*'
