@@ -25,7 +25,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -35,6 +36,12 @@
     "strictTemplates": true
   },
   "files": [],
+  "include": [
+    "aws-blocks/**/*"
+  ],
+  "exclude": [
+    "aws-blocks"
+  ],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.spec.json" },
